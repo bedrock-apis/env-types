@@ -134,6 +134,7 @@ interface Object {
      * Determines whether an object has a property with the specified name.
      * @param v A property name.
      */
+    hasOwnProperty(v: keyof this): boolean;
     hasOwnProperty(v: PropertyKey): boolean;
 
     /**
@@ -146,7 +147,21 @@ interface Object {
      * Determines whether a specified property is enumerable.
      * @param v A property name.
      */
+    propertyIsEnumerable(v: keyof this): boolean;
     propertyIsEnumerable(v: PropertyKey): boolean;
+
+    __defineGetter__<P extends keyof this | string>(prop: P, func: () => any): undefined;
+    __defineGetter__<P extends string>(prop: P, func: () => any): undefined;
+
+    __defineSetter__<P extends keyof this | string>(prop: P, func: (val: any) => void): undefined;
+    __defineSetter__<P extends string>(prop: P, func: (val: any) => void): undefined;
+
+    __lookupGetter__<P extends keyof this>(prop: P): (() => this[P]) | undefined;
+
+    __lookupSetter__<P extends keyof this>(prop: P): ((val: this[P]) => void) | undefined;
+
+    get __proto__(): Object;
+    set __proto__(prototype: Object | null);
 }
 
 interface ObjectConstructor {
@@ -169,6 +184,7 @@ interface ObjectConstructor {
      * @param o Object that contains the property.
      * @param p Name of the property.
      */
+    getOwnPropertyDescriptor<T extends any>(o: T, p: keyof T): PropertyDescriptor | undefined;
     getOwnPropertyDescriptor(o: any, p: PropertyKey): PropertyDescriptor | undefined;
 
     /**
@@ -197,6 +213,7 @@ interface ObjectConstructor {
      * @param p The property name.
      * @param attributes Descriptor for the property. It can be for a data property or an accessor property.
      */
+    defineProperty<T>(o: T, p: keyof T, attributes: PropertyDescriptor & ThisType<any>): T;
     defineProperty<T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): T;
 
     /**
@@ -204,7 +221,14 @@ interface ObjectConstructor {
      * @param o Object on which to add or modify the properties. This can be a native JavaScript object or a DOM object.
      * @param properties JavaScript object that contains one or more descriptor objects. Each descriptor object describes a data property or an accessor property.
      */
-    defineProperties<T>(o: T, properties: PropertyDescriptorMap & ThisType<any>): T;
+    defineProperties<T>(
+        o: T,
+        properties: {
+            [key in keyof T]?: PropertyDescriptor;
+        } & {
+            [key: PropertyKey]: PropertyDescriptor;
+        } & ThisType<any>
+    ): T;
 
     /**
      * Prevents the modification of attributes of existing properties, and prevents the addition of new properties.
