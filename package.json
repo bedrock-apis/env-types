@@ -1,6 +1,6 @@
 {
   "name": "@bedrock-apis/env-types",
-  "version": "1.0.0-rc.1",
+  "version": "1.1.0-rc",
   "description": "A collection of environment-specific TypeScript type definitions for engines with non-standard versioning and selective feature support across versions.",
   "main": "",
   "types": "lib.d.ts",

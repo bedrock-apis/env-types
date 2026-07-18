@@ -40,24 +40,28 @@ Add the package to the `types` field in your `tsconfig.json`:
 ```json
 {
     "compilerOptions": {
+        // ... your properties
         "noLib": true,
         "types": ["@bedrock-apis/env-types"]
     }
 }
 ```
 
-## Development Plan
-
-- Generate a basic set of methods and properties for each global class.
-- Compare and extend these definitions against TypeScript's standard global types.
+## Future Plan
 - Continuously update with help of contributions.
 
 ## Contributing
 
-This package is in **beta**, and we welcome contributions from the community. You can help by:
+This package is in **release candidate**, and we welcome contributions from the community. You can help by:
 
-* Adding missing type definitions.
-* Fixing inconsistencies between types and engine environment apis.
+* Cloning and checking of all types matches latest engine environment
 * Suggesting new features or improvements.
+
+### How to repo
+* Clone repo
+* Install dependencies
+* Move cwd to "./dev/"
+* Run "node bds-gen.ts" to update generated file
+* Run "node scrapple.ts" to bundle all /lib/ files to single /lib.d.ts
 
 Please visit our [GitHub repository](https://github.com/bedrock-apis/env-types) to submit issues or pull requests.
