@@ -1,0 +1,20 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "code-gen",
+    "uuid": "aee59eb3-1ed5-4740-a2ea-09bbfe2e1ad4",
+    "version": "1.0.0",
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "entry": "scripts/index.js",
+      "uuid": "38166dcc-a6cd-44f3-a5ed-93bbca333f16",
+      "version": "1.0.0"
+    }
+  ],
+  "capabilities": [
+    "script_eval"
+  ]
+}

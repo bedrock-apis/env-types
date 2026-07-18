@@ -29,7 +29,23 @@ interface InternalErrorConstructor {
     (message?: string): InternalError;
     readonly prototype: InternalError;
 }
-declare var InternalError: new () => InternalError;
+declare var InternalError: InternalErrorConstructor;
+
+interface SetConstructor {
+    /**
+     * @deprecated This function is not supposed to be on Set constructor ref: https://github.com/quickjs-ng/quickjs/issues/714
+     */
+    groupBy<K, T>(
+        items: Iterable<T>,
+        keySelector: (item: T, index: number) => K,
+    ): Map<K, T[]>;
+}
+
+interface Date {
+    getYear(): number;
+    setYear(year: number): number;
+    toGMTString(): string;
+}
 
 interface Object {
     /**
@@ -38,8 +54,20 @@ interface Object {
      * @protected
      * @ignore
      */
-    get __proto__(): object;
-    set __proto__(prototype: object);
+    get __proto__(): object | null;
+    set __proto__(prototype: object | null);
+
+    /** @deprecated */
+    __defineGetter__(v: PropertyKey, getter: () => any): void;
+    
+    /** @deprecated */
+    __defineSetter__(v: PropertyKey, setter: (val: any) => void): void;
+    
+    /** @deprecated */
+    __lookupGetter__(v: PropertyKey): (() => any) | undefined;
+    
+    /** @deprecated */
+    __lookupSetter__(v: PropertyKey): ((val: any) => void) | undefined;
 }
 
 interface ObjectConstructor {

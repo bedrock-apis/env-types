@@ -3,14 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "type":"module",
   "packageManager": "pnpm@10.20.0",
   "devDependencies": {
+    "@bedrock-apis/bds-utils": "1.2.0-beta",
     "@bedrock-apis/env-types": "link:..",
     "@types/node": "^24.9.2",
     "typescript": "^5.9.3"

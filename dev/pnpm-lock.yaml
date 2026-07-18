@@ -12,6 +12,9 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.120)
     devDependencies:
+      '@bedrock-apis/bds-utils':
+        specifier: 1.2.0-beta
+        version: 1.2.0-beta
       '@bedrock-apis/env-types':
         specifier: link:..
         version: link:..
@@ -23,6 +26,9 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@bedrock-apis/bds-utils@1.2.0-beta':
+    resolution: {integrity: sha512-CU9tCcLny9BYhzk/PRgU+Paoux9L4XsF28a0wu7Dpj05A/vbetfjq7ACwiBqL6OJUWY6wjX+jPBj2ck5vo8QVQ==}
 
   '@minecraft/common@1.2.0':
     resolution: {integrity: sha512-JdmEq4P3Z/FtoBzhLijFgMSVFnFRrUoLwY8DHHrgtFo0mfLTOLTB1RErYjLMsA6b7BGVNxkX/pfFRiH7QZ0XwQ==}
@@ -47,7 +53,14 @@ packages:
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
+  unzip-web-stream@0.0.0-alpha.1:
+    resolution: {integrity: sha512-F5TMIUds4LjT1+HXulzqkLCnAseYT5HTqndxA4Ts0gd/XkQwiOSgUhHzCxNZ4Em5Dg7isU4ZSG92RY0QKDIAnA==}
+
 snapshots:
+
+  '@bedrock-apis/bds-utils@1.2.0-beta':
+    dependencies:
+      unzip-web-stream: 0.0.0-alpha.1
 
   '@minecraft/common@1.2.0': {}
 
@@ -65,3 +78,5 @@ snapshots:
   typescript@5.9.3: {}
 
   undici-types@7.16.0: {}
+
+  unzip-web-stream@0.0.0-alpha.1: {}

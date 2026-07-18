@@ -5,7 +5,12 @@
     "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": [
+      "@types/node"
+    ]
   },
-  "include": ["*.ts"]
+  "include": [
+    "*.ts"
+  ]
 }
